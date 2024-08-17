@@ -5,7 +5,8 @@
 	"name": "Sodium Extras",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Chargonium",
+		"CertifiedCook"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -20,11 +21,11 @@
 		],
 		"fabric-datagen": [
 			"com.chargonium.ccclient.SodiumExtrasDataGenerator"
+		],
+		"client" : [
+			"com.chargonium.ccclient.SodiumExtrasClient"
 		]
 	},
-	"mixins": [
-		"cc-client.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21",
