@@ -4,27 +4,23 @@ import java.lang.reflect.Method;
 
 public class ModuleLoader {
 
-    public boolean registerModule(Object instance) {
+    public void registerModule(Object instance) {
         try {
             Method method = instance.getClass().getMethod("main");
 
             method.invoke(instance);
         } catch (Exception e) {
-            return false;
         }
-        return true;
     }
 
 
-    public boolean registerModule(Object instance, String MainMethodName) {
+    public void registerModule(Object instance, String MainMethodName) {
         try {
             Method method = instance.getClass().getMethod(MainMethodName);
 
             method.invoke(instance);
         } catch (Exception e) {
-            return false;
         }
-        return true;
     }
 
 }
