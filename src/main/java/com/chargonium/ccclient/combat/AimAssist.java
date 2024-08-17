@@ -6,6 +6,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
 public class AimAssist {
@@ -65,6 +66,7 @@ public class AimAssist {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
                 aimAssistEnabled = !aimAssistEnabled;
+                client.player.sendMessage(Text.literal(aimAssistEnabled ? "Toggled AimAssist on" : "Toggled AimAssist off"));
             }
         });
     }

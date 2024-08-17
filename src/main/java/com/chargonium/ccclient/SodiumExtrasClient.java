@@ -2,14 +2,15 @@ package com.chargonium.ccclient;
 
 import com.chargonium.ccclient.combat.AimAssist;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.MinecraftClient;
+import com.chargonium.ccclient.utils.ModuleLoader;
 
 
 public class SodiumExtrasClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        AimAssist aimAssist = new AimAssist();
-        aimAssist.main();
+        ModuleLoader moduleLoader = new ModuleLoader();
+
+        moduleLoader.registerModule(new AimAssist());
     }
 }
