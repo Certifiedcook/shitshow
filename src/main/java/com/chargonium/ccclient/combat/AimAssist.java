@@ -14,39 +14,33 @@ public class AimAssist {
     private boolean aimAssistEnabled = false;
     private PlayerEntity closestPlayer;
 
-    public static PlayerEntity getClosestPlayer(PlayerEntity clientPlayer) {
-        // Get the current Minecraft client instance
+    public static  PlayerEntity getClosestPlayer(PlayerEntity clientPlayer, double maxDistance) {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
 
-        // Initialize the closest player and the minimum distance
         PlayerEntity closestPlayer = null;
         double minDistance = Double.MAX_VALUE;
 
-        // Iterate through all players in the world
+        if (minecraftClient.world == null) return null;
         for (PlayerEntity player : minecraftClient.world.getPlayers()) {
-            // Skip the client player (we don't want to compare the player to itself)
             if (player == clientPlayer) {
                 continue;
             }
 
-            // Calculate the distance between the client player and the current player
             double distance = clientPlayer.squaredDistanceTo(player);
-
-            // Check if this is the closest player so far
+            if (distance > maxDistance) continue;
             if (distance < minDistance) {
                 minDistance = distance;
                 closestPlayer = player;
             }
         }
 
-        // Return the closest player (or null if no other players are found)
         return closestPlayer;
     }
 
     public void main() {
         ClientTickEvents.END_CLIENT_TICK.register((client) -> {
             if (aimAssistEnabled) {
-                closestPlayer = getClosestPlayer(client.player);
+                closestPlayer = getClosestPlayer(client.player, 5);
 
                 if (client.player == null) return;
                 if (closestPlayer == null) return;
