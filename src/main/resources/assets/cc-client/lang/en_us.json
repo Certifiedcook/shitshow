@@ -1,4 +1,6 @@
 {
-  "category.ccclient.testing": "CC Client",
-  "key.ccclient.toggle.aim.assist": "Toggle Aim Assist"
+  "category.ccclient.combat": "CC Client Combat",
+  "key.ccclient.toggle.aim.assist": "Toggle Aim Assist",
+  "key.ccclient.toggle.criticals": "Toggle Criticals",
+  "key.ccclient.toggle.trigger.bot": "Toggle Triggerbot"
 }

@@ -14,11 +14,8 @@
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/cc-client/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"com.chargonium.ccclient.SodiumExtras"
-		],
 		"fabric-datagen": [
 			"com.chargonium.ccclient.SodiumExtrasDataGenerator"
 		],

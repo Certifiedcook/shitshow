@@ -41,7 +41,7 @@ public class AimAssist {
     public void main() {
         ClientTickEvents.END_CLIENT_TICK.register((client) -> {
             if (aimAssistEnabled) {
-                closestPlayer = getClosestPlayer(client.player, 5);
+                closestPlayer = getClosestPlayer(client.player, 24);
 
                 if (client.player == null) return;
                 if (closestPlayer == null) return;
@@ -60,15 +60,14 @@ public class AimAssist {
                 "key.ccclient.toggle.aim.assist", // The translation key of the keybinding's name
                 InputUtil.Type.KEYSYM, // The type of the keybinding, KEYSYM for keyboard, MOUSE for mouse.
                 GLFW.GLFW_KEY_R, // The keycode of the key
-                "category.ccclient.testing" // The translation ey of the keybinding's category.
+                "category.ccclient.combat" // The translation ey of the keybinding's category.
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
                 aimAssistEnabled = !aimAssistEnabled;
-                client.player.sendMessage(Text.literal(aimAssistEnabled ? "Toggled AimAssist on" : "Toggled AimAssist off"));
+                client.player.sendMessage(Text.literal(aimAssistEnabled ? "AimAssist enabled" : "AimAssist disabled"));
             }
         });
     }
-
 }
