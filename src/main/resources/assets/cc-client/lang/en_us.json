@@ -1,6 +1,9 @@
 {
   "category.ccclient.combat": "CC Client Combat",
+  "category.ccclient.movement": "CC Client Movement",
   "key.ccclient.toggle.aim.assist": "Toggle Aim Assist",
+  "key.ccclient.toggle.kill.aura": "Toggle Kill Aura",
   "key.ccclient.toggle.criticals": "Toggle Criticals",
-  "key.ccclient.toggle.trigger.bot": "Toggle Triggerbot"
+  "key.ccclient.toggle.trigger.bot": "Toggle Triggerbot",
+  "key.ccclient.toggle.speed": "Toggle Speed"
 }

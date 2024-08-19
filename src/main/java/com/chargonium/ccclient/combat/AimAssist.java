@@ -13,9 +13,8 @@ public class AimAssist {
 
     private static KeyBinding keyBinding;
     private boolean aimAssistEnabled = false;
-    private PlayerEntity closestPlayer;
 
-    public static  PlayerEntity getClosestPlayer(PlayerEntity clientPlayer, double maxDistance) {
+    private PlayerEntity getClosestPlayer(PlayerEntity clientPlayer, double maxDistance) {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
 
         PlayerEntity closestPlayer = null;
@@ -41,7 +40,7 @@ public class AimAssist {
     public void main() {
         ClientTickEvents.END_CLIENT_TICK.register((client) -> {
             if (aimAssistEnabled) {
-                closestPlayer = getClosestPlayer(client.player, 24);
+                PlayerEntity closestPlayer = getClosestPlayer(client.player, 24);
 
                 if (client.player == null) return;
                 if (closestPlayer == null) return;
